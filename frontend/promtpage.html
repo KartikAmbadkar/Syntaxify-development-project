@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Syntaxify: Explain your code</title>
+  <meta name="description" content="Paste code in Python, JavaScript, Java or C++ and get a plain-English, line-by-line explanation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="promppagecss.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Syntaxify home">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span class="brand-name">Syntaxify</span>
+      </a>
+
+      <!-- Checkbox toggle: mobile menu works without JavaScript -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main class="stage">
+    <div class="workspace" id="workspace">
+
+      <!-- Left: prompt panel (small at first, grows when code is submitted) -->
+      <section class="panel prompt-panel" aria-labelledby="prompt-title">
+        <div class="panel-bar">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="dot" aria-hidden="true"></span>
+          <span class="dot" aria-hidden="true"></span>
+          <h1 class="panel-title" id="prompt-title">Your code</h1>
+          <label class="select-wrap">
+            <span class="sr-only">Language</span>
+            <select id="language">
+              <option value="auto">Auto-detect</option>
+              <option value="python">Python</option>
+              <option value="javascript">JavaScript</option>
+              <option value="java">Java</option>
+              <option value="cpp">C++</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="editor">
+          <div class="line-band" id="line-band" aria-hidden="true"></div>
+          <div class="gutter" aria-hidden="true"><div class="gutter-inner" id="gutter-inner">1</div></div>
+          <textarea id="code" spellcheck="false" wrap="off" autocomplete="off" autocapitalize="off"
+                    aria-label="Code to explain" placeholder="Paste or type your code here"></textarea>
+        </div>
+
+        <p class="form-msg" id="form-msg" role="alert" hidden></p>
+
+        <div class="panel-actions">
+          <button type="button" class="btn-ghost" id="clear-btn" >Clear</button>
+          <span class="hint">Ctrl + Enter</span>
+          <button type="button" class="btn" id="explain-btn">Explain code</button>
+        </div>
+      </section>
+
+      <!-- Right: explanation panel (hidden until code is submitted) -->
+      <section class="panel explain-panel" id="explain-panel" aria-labelledby="explain-title" inert>
+        <div class="panel-bar">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="dot" aria-hidden="true"></span>
+          <span class="dot" aria-hidden="true"></span>
+          <h2 class="panel-title" id="explain-title">Explanation</h2>
+          <span class="badge" id="lang-badge"></span>
+        </div>
+
+        <div class="tabs" id="tabs" role="tablist" aria-label="Explanation sections" hidden>
+          <button type="button" role="tab" id="tab-summary" data-tab="summary" aria-controls="pane-summary" aria-selected="true">Summary</button>
+          <button type="button" role="tab" id="tab-concepts" data-tab="concepts" aria-controls="pane-concepts" aria-selected="false" tabindex="-1">Concepts used</button>
+          <button type="button" role="tab" id="tab-lines" data-tab="lines" aria-controls="pane-lines" aria-selected="false" tabindex="-1">Line by line</button>
+        </div>
+
+        <div class="explain-body">
+          <div class="loading" id="loading" hidden>
+            <span class="pulse" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span>Reading your code</span>
+          </div>
+
+          <div id="result" hidden>
+            <div role="tabpanel" id="pane-summary" aria-labelledby="tab-summary" tabindex="0">
+              <p class="summary" id="summary"></p>
+            </div>
+            <div role="tabpanel" id="pane-concepts" aria-labelledby="tab-concepts" tabindex="0" hidden>
+              <ul class="concept-list" id="concepts"></ul>
+            </div>
+            <div role="tabpanel" id="pane-lines" aria-labelledby="tab-lines" tabindex="0" hidden>
+              <ol class="lines" id="lines"></ol>
+            </div>
+          </div>
+
+          <p class="note" id="note">
+            These explanations come from built-in pattern rules, so unusual code may get a generic description.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <p class="sr-only" id="status" role="status"></p>
+
+  <script src="promptscript.js"></script>
+</body>
+</html>

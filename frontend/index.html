@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Syntaxify: Understand any code in plain English</title>
+  <meta name="description" content="Paste code in any language and get a clear, line-by-line explanation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style6.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Syntaxify home">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span class="brand-name">Syntaxify</span>
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home" aria-current="page">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#info">Info</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <!-- Left: introduction -->
+        <div class="hero-copy">
+          <h1>Understand any code, one line at a time.</h1>
+          <p class="lead">
+            Syntaxify turns code you didn't write, or can't quite follow, into
+            plain English. Paste a snippet, pick your language, and see what each
+            line does and why it's there.
+          </p>
+          <p class="sub">Works with Python, Java, C++, JavaScript and more. No signup needed.</p>
+          <a class="btn" href="promtpage.html">Get started</a>
+        </div>
+
+        <!--Right: typing animation -->
+        <div class="hero-demo">
+          <div class="window" role="img"
+               aria-label="Animation: a Python Fibonacci function is typed out, then Syntaxify explains line 4 in plain English.">
+            <div class="window-bar" aria-hidden="true">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="filename">fibonacci.py</span>
+            </div>
+
+            <div class="code" aria-hidden="true">
+              <div class="row"><span class="t l1"><span class="k">def</span> <span class="f">fibonacci</span>(n):</span></div>
+              <div class="row"><span class="t l2">    a, b = <span class="n">0</span>, <span class="n">1</span></span></div>
+              <div class="row"><span class="t l3">    <span class="k">for</span> _ <span class="k">in</span> <span class="f">range</span>(n):</span></div>
+              <div class="row hl"><span class="t l4">        a, b = b, a + b</span></div>
+              <div class="row"><span class="t l5">    <span class="k">return</span> a</span></div>
+            </div>
+
+            <div class="explain" aria-hidden="true">
+              <p class="explain-title">Line 4</p>
+              <p>Moves the pair forward. <code>a</code> takes the value of <code>b</code>,
+              and <code>b</code> becomes the sum of the old <code>a</code> and <code>b</code>.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ ABOUT: text left, image right ============ -->
+    <section class="section" id="about">
+      <div class="container split">
+        <div class="split-text">
+          <p class="eyebrow">About</p>
+          <h2>Built to make unfamiliar code feel familiar.</h2>
+          <p>
+            Syntaxify is a code explainer for students, self-taught developers and
+            anyone who has opened a file and wondered what it was doing. Paste a
+            snippet and get a plain-English walkthrough instead of a wall of
+            documentation.
+          </p>
+          <p>
+            It follows how people actually learn: start with the big picture, drop
+            down to individual lines, and keep asking until it makes sense.
+          </p>
+        </div>
+
+        <div class="split-media">
+          <div class="media-card">
+            <svg viewBox="0 0 460 300" role="img" aria-label="Code on the left is converted into a plain-English explanation on the right">
+              <rect x="20" y="24" width="190" height="252" rx="10" fill="#0D1530"/>
+              <rect x="20" y="112" width="190" height="24" fill="#FFE066" opacity="0.18"/>
+              <rect x="36"  y="48"  width="90"  height="8" rx="4" fill="#FF8FAB"/>
+              <rect x="52"  y="72"  width="120" height="8" rx="4" fill="#7FD1FF"/>
+              <rect x="52"  y="96"  width="70"  height="8" rx="4" fill="#FFD166"/>
+              <rect x="68"  y="120" width="110" height="8" rx="4" fill="#E6EAF7" opacity="0.7"/>
+              <rect x="68"  y="144" width="80"  height="8" rx="4" fill="#7FD1FF"/>
+              <rect x="52"  y="168" width="100" height="8" rx="4" fill="#E6EAF7" opacity="0.7"/>
+              <rect x="36"  y="192" width="60"  height="8" rx="4" fill="#FF8FAB"/>
+
+              <path d="M218 150 H240" stroke="#FFE066" stroke-width="3" stroke-linecap="round"/>
+              <path d="M234 142 L244 150 L234 158" fill="none" stroke="#FFE066" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <rect x="250" y="24" width="190" height="252" rx="10" fill="#F5F6FB"/>
+              <rect x="266" y="44"  width="70"  height="9" rx="4" fill="#14213D"/>
+              <rect x="266" y="70"  width="150" height="7" rx="3" fill="#4A5675" opacity="0.5"/>
+              <rect x="266" y="86"  width="130" height="7" rx="3" fill="#4A5675" opacity="0.5"/>
+              <rect x="266" y="102" width="140" height="7" rx="3" fill="#4A5675" opacity="0.5"/>
+              <rect x="266" y="130" width="100" height="18" rx="4" fill="#FFE066"/>
+              <rect x="266" y="164" width="150" height="7" rx="3" fill="#4A5675" opacity="0.5"/>
+              <rect x="266" y="180" width="120" height="7" rx="3" fill="#4A5675" opacity="0.5"/>
+              <rect x="266" y="196" width="140" height="7" rx="3" fill="#4A5675" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES: image left, text right ============ -->
+    <section class="section section--alt" id="features">
+      <div class="container split split--flip">
+        <div class="split-text">
+          <p class="eyebrow">Features</p>
+          <h2>Everything you need to follow the logic.</h2>
+          <ul class="point-list">
+            <li><strong>Line-by-line explanations</strong> Click a line to see what it does and why it is there.</li>
+            <li><strong>Different languages</strong> Switch between any language you prefer.</li>
+            <li><strong>Step-by-step execution trace</strong> Watch variables change as the code runs.</li>
+            <li><strong>Bugs and improvements</strong> Spot errors, edge cases and cleaner ways to write the same thing.</li>
+          </ul>
+        </div>
+
+        <div class="split-media">
+          <div class="media-card">
+            <svg viewBox="0 0 460 300" role="img" aria-label="Difficulty level selector above a table showing variable values at each step">
+              <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="13">
+                <rect x="20" y="24" width="100" height="30" rx="15" fill="#FFE066"/>
+                <text x="70" y="44" text-anchor="middle" fill="#14213D">Python</text>
+                <rect x="130" y="24" width="130" height="30" rx="15" fill="none" stroke="#6C7A9E"/>
+                <text x="195" y="44" text-anchor="middle" fill="#E6EAF7">Java</text>
+                <rect x="270" y="24" width="80" height="30" rx="15" fill="none" stroke="#6C7A9E"/>
+                <text x="310" y="44" text-anchor="middle" fill="#E6EAF7">C++</text>
+
+                <rect x="20" y="76" width="420" height="200" rx="10" fill="#0D1530"/>
+                <rect x="20" y="184" width="420" height="30" fill="#FFE066" opacity="0.18"/>
+                <text x="44"  y="104" fill="#6C7A9E">step</text>
+                <text x="164" y="104" fill="#6C7A9E">a</text>
+                <text x="264" y="104" fill="#6C7A9E">b</text>
+
+                <text x="44" y="134" fill="#E6EAF7">0</text><text x="164" y="134" fill="#FFD166">0</text><text x="264" y="134" fill="#FFD166">1</text>
+                <text x="44" y="164" fill="#E6EAF7">1</text><text x="164" y="164" fill="#FFD166">1</text><text x="264" y="164" fill="#FFD166">1</text>
+                <text x="44" y="204" fill="#E6EAF7">2</text><text x="164" y="204" fill="#FFD166">1</text><text x="264" y="204" fill="#FFD166">2</text>
+                <text x="44" y="234" fill="#E6EAF7">3</text><text x="164" y="234" fill="#FFD166">2</text><text x="264" y="234" fill="#FFD166">3</text>
+                <text x="44" y="264" fill="#E6EAF7">4</text><text x="164" y="264" fill="#FFD166">3</text><text x="264" y="264" fill="#FFD166">5</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INFO: text left, image right ============ -->
+    <section class="section" id="info">
+      <div class="container split">
+        <div class="split-text">
+          <p class="eyebrow">Info</p>
+          <h2>How it works, and what to expect.</h2>
+          <ul class="point-list">
+            <li><strong>Languages</strong> Python, Java, C++, JavaScript and more.</li>
+            <li><strong>No signup needed</strong> Paste your first snippet and get an explanation straight away.</li>
+            <li><strong>Three simple steps</strong> Paste your code, choose a level, read the explanation.</li>
+          </ul>
+        </div>
+
+        <div class="split-media">
+          <div class="media-card">
+            <svg viewBox="0 0 460 300" role="img" aria-label="Three steps: paste, choose level, read">
+              <g font-family="JetBrains Mono, ui-monospace, monospace">
+                <path d="M126 130 H194 M266 130 H334" stroke="#6C7A9E" stroke-width="2" stroke-dasharray="6 6"/>
+                <circle cx="90"  cy="130" r="36" fill="#FFE066"/>
+                <circle cx="230" cy="130" r="36" fill="#FFE066"/>
+                <circle cx="370" cy="130" r="36" fill="#FFE066"/>
+                <text x="90"  y="140" text-anchor="middle" font-size="28" font-weight="500" fill="#14213D">1</text>
+                <text x="230" y="140" text-anchor="middle" font-size="28" font-weight="500" fill="#14213D">2</text>
+                <text x="370" y="140" text-anchor="middle" font-size="28" font-weight="500" fill="#14213D">3</text>
+                <text x="90"  y="206" text-anchor="middle" font-size="16" fill="#E6EAF7">Paste</text>
+                <text x="230" y="206" text-anchor="middle" font-size="16" fill="#E6EAF7">Choose language</text>
+                <text x="370" y="206" text-anchor="middle" font-size="16" fill="#E6EAF7">Read</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand brand-footer" href="#home" aria-label="Syntaxify home">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span class="brand-name">Syntaxify</span>
+      </a>
+
+      <nav aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="mailto:hello@syntaxify.com">Contact: hello@syntaxify.com</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const links  = [...document.querySelectorAll('.main-nav a')];
+    links.forEach(a => a.addEventListener('click', () => { toggle.checked = false; }));
+
+    const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        links.forEach(l => l.removeAttribute('aria-current'));
+        const link = byId.get(entry.target.id);
+        if (link) link.setAttribute('aria-current', 'page');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['home', 'about', 'features', 'info'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
